@@ -1,4 +1,13 @@
-AddLocationForm:
+#: import main main
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+
+WeatherRoot:
+
+<LocationButton>:
+    on_press: app.root.show_current_weather(self.text)
+
+<WeatherRoot>:
+    AddLocationForm
 
 <AddLocationForm>:
     orientation: "vertical"
@@ -19,4 +28,5 @@ AddLocationForm:
             size_hint_x: 25
     ListView:
         id: search_results_list
-        item_strings: []
+        adapter:
+            ListAdapter(data=[], cls=main.ListItemButton)
